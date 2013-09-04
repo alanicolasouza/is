@@ -1,0 +1,82 @@
+<?php $helpers = new Helpers_wp; ?>
+
+<div id="pageCategory">
+
+	<div class="slider-wrapper theme-default">
+        <div id="slider" class="nivoSlider">
+        
+        <?php
+            $query = new WP_Query('post_type=banners&posts_per_page=16');
+            
+            $i = 0;
+            
+            while ( $query->have_posts() ){
+                
+                $query->the_post();
+                global $post;
+                
+                $title = get_the_title();
+                $dados =  get_post_meta($post->ID, WORDWEBPRESS_APP_NAME . '_metas_Informações do Banner');
+                                            
+                $dados = unserialize( base64_decode( $dados[0] ) );
+
+                if ( !empty($dados['link']) )
+                    echo '<a href="'.$dados['link'].'"'.($dados['newwindow']?' target="_blank"':'').' title="'.get_the_title().'">';
+                else
+                    echo '<a href="#" onclick="return false;">';
+                
+                echo '<img src="'.$dados['foto'].'" title="'.get_the_title().'" alt="'.get_the_title().'"></a>';
+
+                $i += 1;
+            }
+            
+            wp_reset_query();
+        ?>
+        
+        </div>
+    </div>
+
+	<?php $helpers->breadcrumb( $post->ID ); ?>
+
+	<section class="wrap-itens">
+
+		<?php
+			global $wp_query;
+			$term = $wp_query->get_queried_object();
+			$title = $term->name;
+
+			if ( have_posts() ) : while ( have_posts() ) : the_post();		
+				global $post;
+			
+			$post_type = get_post_type_object( get_post_type() );
+			
+			$dados = $helpers->get_metas($post->ID, '_metas_Dados do Produto');
+		?>
+
+		<a href="<?php the_permalink(); ?>" title=" <?php the_title(); ?>" class="item">
+			<h3 class="h-item"> <?php the_title(); ?> </h3>
+			<div class="item-border">
+				<figure>
+					<?php 
+						if ( has_post_thumbnail() )
+							echo $helpers->get_image( $post->ID, array('158','158'), 't', 2 );
+						else
+							echo '<img src="'.get_bloginfo('template_url') . '/assets/images/sem_imagem.gif"  />';
+					?>
+				</figure>
+				<span class="price">
+					<?php
+
+						if( !empty($dados->preco) )
+							echo(" R$ {$dados->preco} ");
+						else
+							echo("Consulte");				
+					?>
+				</span>
+			</div>
+		</a>
+
+		<?php endwhile; endif; ?>
+	</section>
+
+</div>

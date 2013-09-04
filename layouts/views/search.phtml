@@ -1,0 +1,56 @@
+<?php 
+	$helpers = new Helpers_wp;
+	$this instanceof Wordwebpress;
+	
+	if( is_tax() ) {
+		global $wp_query;
+		$term = $wp_query->get_queried_object();
+		$title = $term->name;
+	}
+?>
+
+<h1 class="h-black">Procurando por <?php the_search_query() ?></h1>
+
+<section class="wrap-itens">
+	<?php
+		if ( have_posts() ) : while ( have_posts() ) : the_post();		
+			global $post;
+				
+		$post_type = get_post_type_object( get_post_type() );
+		$dados = $helpers->get_metas($post->ID, '_metas_Dados do Produto');
+	?>
+
+	<a href="<?php the_permalink(); ?>" title=" <?php the_title(); ?>" class="item">
+		<h3 class="h-item"> <?php the_title(); ?> </h3>
+		<div class="item-border">
+			<figure>
+				<?php 
+					if ( has_post_thumbnail() )
+						echo $helpers->get_image( $post->ID, array('158','158'), 't', 2 );
+					else
+						echo '<img src="'.get_bloginfo('template_url') . '/assets/images/sem_imagem.gif"  />';
+				?>
+			</figure>
+			<span class="price">
+				<?php
+
+					if( !empty($dados->preco) )
+						echo(" R$ {$dados->preco} ");
+					else
+						echo("Consulte");				
+				?>
+			</span>
+		</div>
+	</a>
+
+</section>
+
+<?php endwhile; else: ?>
+
+	<div id="page404">
+    	<img src="<?php bloginfo( 'template_directory' ); ?>/assets/images/default/404.png" alt="Nenhum resultado encontrado." />
+    	<p class="txt-center">Busca não encontrada.</p>
+		<p class="txt-center">Por favor verifique o nome do produto para que o buscador encontre o que procura.</p>
+	</div>
+
+<?php endif; ?>

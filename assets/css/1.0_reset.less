@@ -1,0 +1,306 @@
+/**
+*@name: ResetMaster;
+*@author: Robson Junior;
+*@author-url: http://www.robsonjunior.com.br;
+*@description: Reset CSS, HTML;
+*@update: 12/07/2013;
+*@date: 24/01/2013;
+**/
+
+
+/*
+=========================================================================================
+======================================= HTML RESET ======================================
+=========================================================================================
+*/
+
+*{
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body{
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+html,
+body,
+body div,
+span,
+object,
+iframe,
+h1, h2, h3, h4, h5, h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub, sup,
+b, i,
+dl, dt, dd, ol, ul, li, 
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, figure, footer, header, hgroup, nav, section, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section{
+	display: block;
+}
+
+abbr[title],
+dfn[title]{
+  border-bottom: 1px dotted #000;
+  cursor: help;
+}
+
+pre{
+  white-space: pre;
+  white-space: pre-wrap;
+  white-space: pre-line;
+  word-wrap: break-word;
+}
+
+sub,
+sup{
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+}
+
+sup{ top: -0.5em;}
+sub{ bottom: -0.25em;}
+
+small{ font-size: 75%;}
+
+strong, b{ font-weight: bold;}
+
+cite, em, dfn, i{ font-style: italic}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after{
+	content: "";
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+
+a:hover, a:active{outline: none;}
+
+ul{ list-style: square;}
+ol{ list-style: decimal;}
+ul, ol{margin: 10px 15px;}
+
+ul.list-inline li{ display: block; float: left; }
+
+.ListNoMarkup{ list-style: none;}
+
+nav li{ display:block; float:left;}
+
+hr{
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #ccc;
+	margin: 1em 0;
+	padding: 0;
+}
+
+table{ border-collapse: collapse; border-spacing: 0;}
+th{ font-weight: bold; vertical-align: bottom;}
+td{ font-weight: normal; vertical-align: top;}
+input, select{vertical-align: middle;}
+input[type="radio"]{vertical-align: text-bottom;}
+input[type="checkbox"]{ vertical-align: bottom; *vertical-align: baseline;}
+
+.clickable,
+label,
+input[type=button],
+input[type=submit],
+button{
+	cursor: pointer;
+}
+
+caption, th, td{ text-align: left; font-weight: normal; }
+
+
+/*
+=========================================================================================
+======================================== CSS RESET ======================================
+=========================================================================================
+*/
+
+/* fonts */
+.txt-10{ font-size: 10px;}
+.txt-12{ font-size: 12px;}
+.txt-14{ font-size: 14px;}
+.txt-16{ font-size: 16px;}
+.txt-18{ font-size: 18px;}
+.txt-20{ font-size: 20px;}
+.txt-22{ font-size: 22px;}
+.txt-24{ font-size: 24px;}
+.txt-26{ font-size: 26px;}
+.txt-28{ font-size: 28px;}
+.txt-30{ font-size: 30px;}
+.txt-32{ font-size: 32px;}
+.txt-34{ font-size: 34px;}
+.txt-36{ font-size: 36px;}
+.txt-38{ font-size: 38px;}
+.txt-40{ font-size: 40px;}
+.txt-42{ font-size: 42px;}
+.txt-44{ font-size: 44px;}
+.txt-46{ font-size: 46px;}
+.txt-48{ font-size: 48px;}
+
+.txt-justify{ text-align: justify;}
+.txt-center{ text-align: center;}
+.txt-right{ text-align: right;}
+.txt-left{ text-align: left;}
+.txt-strong{ font-weight: bold;}
+.txt-italic{ font-style: italic;}
+
+/* align */
+.fr, .alignright{ float: right !important;}
+.fl, .alignleft{ float: left !important;}
+
+.alignright{ margin: 10px 0 10px 10px;}
+.alignleft{ margin: 10px 10px 10px 0;}
+
+/* class */
+.block{ display: block;}
+.hide, .seo{ display: none;}
+.visible{ visibility: visible;}
+.hidden{ visibility: hidden;}
+
+/* interal spaces */
+.p-all10{ padding: 10px 10px 10px 10px;}
+.p-all15{ padding: 15px 15px 15px 15px;}
+.p-all20{ padding: 20px 20px 20px 20px;}
+.p-all25{ padding: 25px 25px 25px 25px;}
+.p-all30{ padding: 30px 30px 30px 30px;}
+.p-all35{ padding: 35px 35px 35px 35px;}
+.p-all40{ padding: 40px 40px 40px 40px;}
+.p-all45{ padding: 45px 45px 45px 45px;}
+.p-all50{ padding: 50px 50px 50px 50px;}
+
+.p-top10{ padding: 10px 0 0 0;}
+.p-top15{ padding: 15px 0 0 0;}
+.p-top20{ padding: 20px 0 0 0;}
+.p-top25{ padding: 25px 0 0 0;}
+.p-top30{ padding: 30px 0 0 0;}
+.p-top35{ padding: 35px 0 0 0;}
+.p-top40{ padding: 40px 0 0 0;}
+.p-top45{ padding: 45px 0 0 0;}
+.p-top50{ padding: 50px 0 0 0;}
+
+.p-right10{ padding: 0 10px 0 0;}
+.p-right15{ padding: 0 15px 0 0;}
+.p-right20{ padding: 0 20px 0 0;}
+.p-right25{ padding: 0 25px 0 0;}
+.p-right30{ padding: 0 30px 0 0;}
+.p-right35{ padding: 0 35px 0 0;}
+.p-right40{ padding: 0 40px 0 0;}
+.p-right45{ padding: 0 45px 0 0;}
+.p-right50{ padding: 0 50px 0 0;}
+
+.p-bottom10{ padding: 0 0 10px 0;}
+.p-bottom15{ padding: 0 0 15px 0;}
+.p-bottom20{ padding: 0 0 20px 0;}
+.p-bottom25{ padding: 0 0 25px 0;}
+.p-bottom30{ padding: 0 0 30px 0;}
+.p-bottom35{ padding: 0 0 35px 0;}
+.p-bottom40{ padding: 0 0 40px 0;}
+.p-bottom45{ padding: 0 0 45px 0;}
+.p-bottom50{ padding: 0 0 50px 0;}
+
+.p-left10{ padding: 0 0 0 10px;}
+.p-left15{ padding: 0 0 0 15px;}
+.p-left20{ padding: 0 0 0 20px;}
+.p-left25{ padding: 0 0 0 25px;}
+.p-left30{ padding: 0 0 0 30px;}
+.p-left35{ padding: 0 0 0 35px;}
+.p-left40{ padding: 0 0 0 40px;}
+.p-left45{ padding: 0 0 0 45px;}
+.p-left50{ padding: 0 0 0 50px;}
+
+/* clean */
+.clear{
+	clear:both;
+	display:block;
+	overflow:hidden;
+	visibility:hidden;
+	width:0;
+	height:0
+}
+
+.clearfix:before,
+.clearfix:after{
+	content: "";
+	display: block;
+	height: 0;
+	overflow: hidden;
+}
+.clearfix:after{ clear: both;}
+.clearfix { zoom: 1;}
+
+
+/*WP RESET*/
+
+.wp-caption{
+    position: relative;
+    width: auto !important;
+
+    .wp-caption-text{
+        color: white;
+        font-size: 12px;
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        padding: 10px;
+        width: 100%;
+        background: rgba(0,0,0,0.5);
+    }
+}
+
+img.alignleft, img.alignright{
+    padding: 2px;
+    box-shadow: 0 0 3px rgba(0,0,0,0.3);
+}

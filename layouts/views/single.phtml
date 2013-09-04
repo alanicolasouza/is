@@ -1,0 +1,146 @@
+<?php
+
+	$getUrl = 'http://www.'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+	$helpers = new Helpers_wp;	
+?>
+
+<div id="pageProduct" class="p-top10">
+
+	<?php
+		$helpers->breadcrumb( $post->ID );
+
+		if (have_posts()) : while (have_posts()) : the_post();
+			global $post;
+
+		$post_type = get_post_type_object( get_post_type() );
+			
+		$dados = $helpers->get_metas($post->ID, '_metas_Dados do Produto');
+	?>
+
+	<div id="product" class="clearfix">
+
+		<div class="img-product">
+			<div class="wrap-img">
+				<div class="img-destak">
+					<figure>
+						<?php 
+							if ( has_post_thumbnail() )
+								echo $helpers->get_image( $post->ID, array('158','158'), 't', 2 );
+							else
+								echo '<img src="'.get_bloginfo('template_url') . '/assets/images/sem_imagem.gif">';
+						?>
+					</figure>
+				</div>
+				<div class="wrap-thumb">
+					<?php
+						/* Lista imagens cadastradas no shortcode Gallery */
+					    $images = get_children( array('post_parent' => $post->ID, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => 'ASC', 'orderby' => 'menu_order ID') );
+					    if ($images) 
+					    {
+					        $num_of_images = count($images);
+					        if ($offset > 0) : $start = $offset--; else : $start = 0; endif;
+					        if ($limit > 0) : $stop = $limit+$start; else : $stop = $num_of_images; endif;
+					        $i = 0;
+					        foreach ($images as $image) 
+					        {
+					            if ($start <= $i and $i < $stop) 
+					            {
+						            $img_title = $image->post_title;   // title.
+						            $img_description = $image->post_content; // description.
+						            $img_caption = $image->post_excerpt; // caption.
+						            $img_url = wp_get_attachment_url($image->ID); // url of the full size image.
+						            $preview_array = image_downsize( $image->ID, 'medium' );
+						            $img_preview = $preview_array[0]; // thumbnail or medium image to use for preview.
+					            ?>
+					            <a class="thumb fancy" href="<?=$img_preview?>" title="<?=$img_title?>">
+					            	<img src="<?=get_bloginfo('template_directory') .'/is/images/resize.php?src=' . $img_preview . '&w=52&h=52q=75&a=t&zc=2'?>" alt="<?=$img_title?>" />
+					            </a>
+					            <?
+								}
+							            $i++;
+							}
+						}
+					?>
+				</div>
+			</div>
+		</div>
+
+		
+		<div class="description fl clearfix">
+
+			<ul class="price">
+				<li class="o"> De: <span><small>R$</small> <?=$dados->dePreco?> </span> </li>
+				<li class="a">Por: <span><small>R$</small> <?=$dados->preco?> </span></li>
+			</ul>
+
+			<a href="<?php bloginfo('url');?>/contato/?produto=<?=urlencode( get_the_title() )?>" title="descrição" class="btn btn-orange"> Solicitar </a>
+
+			<br class="clear">
+
+			<h2 class="h-black h-black-border-bottom"> Descrição </h2>
+			<?php the_content(); ?>
+		</div>
+
+	</div>
+
+	<?php endwhile; endif; ?>
+
+	<h2 class="h-black h-black-border-bottom">Comentários</h2>
+	<div id="fb-root"></div>
+	<script>
+		(function(d, s, id){
+			var js, fjs = d.getElementsByTagName(s)[0];
+		  	if (d.getElementById(id)) return;
+		  	js = d.createElement(s); js.id = id;
+		  	js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=122998567854339";
+		  	fjs.parentNode.insertBefore(js, fjs);
+		}
+		(document, 'script', 'facebook-jssdk'));
+	</script>
+	<html xmlns:fb="http://ogp.me/ns/fb#">
+	<fb:comments href="<?php echo $getUrl ?>" width="700" num_posts="10"></fb:comments>
+
+	<section class="wrap-itens">
+		<h2 class="h-black-big h-black-border-bottom"> Outros produtos </h2>
+
+		<?php 
+			query_posts('post_type=produtos&posts_per_page=8&orderby=rand');
+			if ( have_posts() ) : while ( have_posts() ) : the_post();
+			
+				global $post;
+				
+				$helpers = new Helpers_wp;
+				$dados = $helpers->get_metas($post->ID, '_metas_Dados do Produto');	
+		?>
+
+		<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="item">
+			<h3 class="h-item"> <?php the_title(); ?> </h3>
+			<div class="item-border">
+				<figure>
+					<?php 
+						if ( has_post_thumbnail() )
+							echo $helpers->get_image( $post->ID, array('158','158'), 't', 2 );
+						else
+							echo '<img src="'.get_bloginfo('template_url') . '/assets/images/sem_imagem.gif"  />';
+					?>
+				</figure>
+
+				<span class="price">
+					<?php
+
+						if( !empty($dados->preco) )
+							echo(" R$ {$dados->preco} ");
+						else
+							echo("Consulte");				
+					?>
+				</span>
+			</div>
+		</a>
+
+		<?php
+			endwhile; endif;
+			wp_reset_query();
+		?>
+	</section>
+
+</div>

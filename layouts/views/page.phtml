@@ -1,0 +1,16 @@
+<section id='pageSinglePage' class='clearfix'>
+<?php
+
+	$helpers = new Helpers_wp;
+
+	the_title( '<h1 class="h-big-black">', '</h1>');
+
+	if (have_posts()) : while (have_posts()) : the_post();
+	global $post;
+
+	the_content();
+
+	endwhile;
+	endif;
+?>
+</section>

@@ -1,0 +1,221 @@
+@CHARSET "UTF-8";
+
+.clear {
+	clear: both;
+}
+/*========================
+===  ADMIN
+==========================*/
+.w2p-admin #container {
+	position: relative;
+	background: #dcdcdc url('../images/bg_admin.png') no-repeat -40px -40px;
+	width: 100%;
+	margin-top: 30px;
+	height: 100%;
+padding-bottom: 1px;
+}
+
+.w2p-admin #container .menu {
+	position: absolute;
+	border: 0px solid #ccc;
+	top: 130px;
+	left: 20px;
+	width: 180px;
+	padding: 0;
+}
+
+.w2p-admin #container .menu ul {
+	
+}
+
+.w2p-admin #container .menu ul li {
+	margin-top: 6px;
+}
+
+.w2p-admin #container .menu ul li.ativo {
+	background: #e6e9ed;
+	cursor: default;
+}
+
+.w2p-admin #container .menu ul li.ativo:hover {
+	border-color: #bbb;
+	color: #464646
+}
+
+.w2p-admin #container .content {
+	position: relative;
+	margin: 0 40px 30px 220px;
+	padding-top: 20px;
+}
+
+.w2p-admin #container .content div.form {
+	display:none;
+}
+
+.w2p-admin #container input {
+	width: 100%;
+}
+
+.w2p-admin #container input[type="button"]
+{
+	width: auto !important;
+} 
+
+.w2p-admin #container textarea {
+	display: block;
+	min-width: 100%;
+	min-height: 110px;
+	max-width: 100%;
+	max-height: 110px;
+}
+
+.w2p-admin #container #tabs div {
+	border: 0px solid #ccc;
+}
+
+div.buttomRadio {
+	display: block;
+	width: 64px;
+	height: 21px;
+	background: url("../images/bg_radioButtom.png") top left;
+	cursor: pointer;
+}
+
+.w2p-admin #container div.ativo {
+	display: block;
+}
+
+.w2p-admin #container div.gravar {
+	text-align: right;
+}
+
+#loading_admin {
+	display: none;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 999999;
+	background-color: rgba(255, 255, 255, 0.7)
+}
+#loading_admin > div {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -126px 0 0 -116px;
+	padding: 50px;
+	text-align: center;
+	border: 2px solid #15d50b;
+	border-radius: 22px;
+	background-color: white;
+	color: #15d50b;
+}
+
+/*=============================================*/
+
+#alerts {
+	top: 250px;
+	left: 150px;
+	right: 20px;
+	bottom: 0;
+}
+
+#alerts > div {
+	display: none;	
+	opacity: 0;
+	margin: 12px 0;
+
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+
+	box-shadow:inset 1px 1px 3px rgba(0,0,0,0.1), 1px 1px 0 rgba(255,255,255,0.2);
+	-moz-box-shadow:inset 1px 1px 3px rgba(0,0,0,0.1), 1px 1px 0 rgba(255,255,255,0.2);
+	-webkit-box-shadow:inset 1px 1px 3px rgba(0,0,0,0.1), 1px 1px 0 rgba(255,255,255,0.2);
+	
+	position: relative;
+	width: 100%;
+}
+
+#alerts > div > div.close {
+	display: block;
+	position: absolute;
+	top:19px;
+	right:12px;
+	width:26px;
+	height:26px;
+	cursor: pointer;
+	background: transparent url("../images/alert_icon_close.png") no-repeat;
+}
+#alerts > div > p {
+	position: relative;
+	font-family: 'PTSansNarrowBold';
+	font-size: 18px;
+	min-height: 26px;
+	vertical-align: middle;
+	padding-left: 38px;
+	padding-right: 62px;
+	padding-bottom: 36px;
+	top: 19px;
+	left: 12px;
+}
+
+#alerts #error {
+	background-color: #FFB5B5;
+}
+#alerts #error p {
+	color: #E83D0E;
+	background: transparent url("../images/alert_icon_error.png") no-repeat;	
+}
+
+#alerts #warning {
+	background-color: #F4EF9A;	
+}
+
+#alerts #warning p {
+	color: #e8a911;
+	background: transparent url("../images/alert_icon_warning.png") no-repeat;	
+}
+
+#alerts #confirm {
+	background-color: #BCFFB5;	
+}
+
+#alerts #confirm p {
+	color: #54a306;
+	background: transparent url("../images/alert_icon_confirm.png") no-repeat;	
+}
+
+#alerts #info {
+	background-color: #B5D1FF;	
+}
+
+#alerts #info p {
+	color: #2766a1;
+	background: transparent url("../images/alert_icon_info.png") no-repeat;	
+}
+
+.w2p-metas select
+{
+	width: 50%;
+}
+
+/*========================
+===  METAS
+==========================*/
+.w2p-metas{
+	background: url('../images/bg_admin_mini.png') no-repeat right top;
+}
+.w2p-metas input{
+	width: 50%;
+}
+.w2p-metas textarea{
+	width: 60%;
+	min-height: 80px;
+}
+.w2p-metas input[type="button"]{
+	width: auto !important;
+}
+

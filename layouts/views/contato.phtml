@@ -1,0 +1,55 @@
+<section id="PageContact" class="clearfix">
+
+    <div class="SpaceScroll">
+
+        <h1 class="TitleDefault">
+            Contato
+            <span class="seo"><?php bloginfo('name');?></span>
+        </h1>
+
+        <form class="has-validation clearfix" name="formulario_contato" method="post" action="<?php bloginfo('template_url'); ?>/enviar.php">
+
+            <input name="name" type="text" class="hide" />
+            <input name="nome" type="text" class="hide" />
+
+            <fieldset class="l clearfix">
+                <label for="name"> Nome </label>
+                <input id="name" type="text" name="quem" required="required" />
+
+                <label class="email">Email</label>
+                <input id="email" type="email" name="email" required="required" />
+
+                <label class="tel">Telefone</label>
+                <input id="tel" type="tel" name="tel"/>
+
+
+                <label for="city"> Cidade </label>
+                <input id="city" type="text" name="cidade" required="required" />
+
+                <label for="company"> Empresa </label>
+                <input id="company" type="text" name="empresa"/>
+            </fieldset>
+            <fieldset class="r clearfix">
+                <label for="subject">Assunto</label>
+                <input id="subject" type="text" name="assunto" required="required"/>
+
+                <label class="msg">Mensagem</label>
+                <textarea id="msg" name="mensagem" required="required"></textarea>
+
+                <a href="<?=$this->configuration()->get_cfn_value('facebook')?>" class="icon-facebook FontIcons" title="<?php bloginfo('name');?> | Facebook" target="_blank"></a>
+                <a href="<?=$this->configuration()->get_cfn_value('twitter')?>" class="icon-twitter FontIcons" title="<?php bloginfo('name');?> | Twitter" target="_blank"></a>
+                <a href="<?=$this->configuration()->get_cfn_value('linkedin')?>" class="icon-linkedin FontIcons" title="<?php bloginfo('name');?> | Linkedin" target="_blank"></i></a>
+                <a href="<?=$this->configuration()->get_cfn_value('github')?>" class="icon-github-circled FontIcons" title="<?php bloginfo('name');?> | GitHub" target="_blank"></a>
+
+                <input class="btn BtnBlue" type="submit" value="Enviar"/>
+            </fieldset>
+        </form>
+
+        <div id="location" class="clearfix NoMobile">
+            <div id="location" class="clearfix NoMobile">
+                <h3 class="TitleDefault">  Localização </h3>
+                <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Porto+alegre+Cidade+baixa&amp;aq=&amp;sll=-30.027704,-51.228735&amp;sspn=0.495209,0.617294&amp;ie=UTF8&amp;hq=&amp;hnear=Cidade+Baixa,+Porto+Alegre+-+Rio+Grande+do+Sul,+Brazil&amp;t=m&amp;z=14&amp;ll=-30.040199,-51.222613&amp;output=embed"></iframe>
+            </div>
+        </div>
+    </div>
+</section>

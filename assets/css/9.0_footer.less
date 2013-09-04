@@ -1,0 +1,30 @@
+/*
+MAX 999px
+------------------------------------------------------------------------------
+*/
+
+@media all and (max-width: 999px){
+
+  footer{
+    display: block;
+    background: url("../images/BgHeader.png") repeat;
+    color: @white;
+    border-top: solid 5px @blue;
+    box-shadow: 0 0 2px rgba(0,0,0,0.75);
+
+    p{
+      margin: 0;
+      line-height: 30px;
+      text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+    }
+  }
+}
+
+/*
+MIN 1000px
+------------------------------------------------------------------------------
+*/
+
+@media all and (min-width: 1000px){
+  footer{ display: none;}
+}
