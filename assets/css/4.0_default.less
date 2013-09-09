@@ -1,7 +1,4 @@
-/*
-DEFAULT
-------------------------------------------------------------------------------
-*/
+/* DEFAULT */
 
 @black        : #000000;
 
@@ -34,7 +31,7 @@ DEFAULT
 @white        : #FFFFFF;
 @ice          : #F5F5F5;
 
-.UserSelect( @blue );
+
 
 @font: 'PT Sans', sans-serif;
 @FontDestak: 'PT Sans Caption', sans-serif;
@@ -87,10 +84,7 @@ body{
     overflow: hidden;
   }
 
-  #RJRContent,
-  #RJRScroller{
-    .BoxSizing(border-box);
-  }
+  #RJRContent,  #RJRScroller{  .BoxSizing(border-box);  }
 
   #RJRScroller{
     width:100%;
@@ -107,9 +101,72 @@ body{
   #loadding{
     position: fixed;
     left: 0; top: 0;
-    background: @white url("../images/loader.gif") no-repeat center center;
+    background: @white;
     z-index: 90000;
     .square(100%);
+
+    ul, li{
+      display: block;
+      position: absolute;
+    }
+
+    ul{
+       .size(60px, 57px);
+      left: 50%; top: 50%;
+      margin: -26px 0 0 -30px;
+      list-style: none;
+
+      li{
+        background: blue;
+        z-index: 90001;
+        background: url("../images/loading.png") no-repeat transparent;
+        display: block;
+        opacity: 0;
+
+        @AnimationTime:4.5s;
+
+        @-webkit-keyframes LoaddingEffect{ 15%{ opacity: 0; } 85%{ opacity: 1; }}
+        @-o-keyframes LoaddingEffect{ 15%{ opacity: 0; } 85%{ opacity: 1; }}
+        @-moz-keyframes LoaddingEffect{ 15%{ opacity: 0; } 85%{ opacity: 1; }}
+        @keyframes LoaddingEffect{ 15%{ opacity: 0; } 85%{ opacity: 1; }}
+
+        @-webkit-keyframes LoaddingEffect2 { 30%{ opacity: 0; } 70%{ opacity: 1; }}
+        @-o-keyframes LoaddingEffect2{ 30%{ opacity: 0; } 70%{ opacity: 1; } }
+        @-moz-keyframes LoaddingEffect2{ 30%{ opacity: 0; } 70%{ opacity: 1; }}
+        @keyframes LoaddingEffect2{ 30%{ opacity: 0; } 70%{ opacity: 1;}}
+
+        @-webkit-keyframes LoaddingEffect3{ 40%{ opacity: 0; } 60%{ opacity: 1; }}
+        @-o-keyframes LoaddingEffect3{ 40%{ opacity: 0; } 60%{ opacity: 1; }}
+        @-moz-keyframes LoaddingEffect3{ 40%{ opacity: 0; } 60%{ opacity: 1; }}
+        @keyframes LoaddingEffect3{ 40%{ opacity: 0; } 60%{ opacity: 1; }}
+
+        &#l{
+          .size(17px, 15px);
+          .animation( LoaddingEffect3 infinite);
+          .AnimationDuration(@AnimationTime);
+          right: 8px;
+          top: 1px;
+          background-position: -44px 1px;
+        }
+
+        &#m{
+          .size(27px, 23px);
+          .animation( LoaddingEffect2 infinite);
+          .AnimationDuration(@AnimationTime);
+          left: 13px;
+          top: 12px;
+          background-position: -15px -7px;
+        }
+
+        &#b{
+          .size(29px, 26px);
+          .animation( LoaddingEffect infinite);
+          .AnimationDuration(@AnimationTime);
+          left: 0; bottom: 0;
+          background-position: -14px -5px;
+        }
+      }
+    }
   }
 }
 

@@ -1,2 +1,5 @@
 <?php
-Wordwebpress::getInstance()->setLayout('default')->setView('single')->render();
+if( !isset($_GET['ajax']) )
+	header('Location: http://interative.cc');
+	
+Wordwebpress::getInstance()->setLayout('ajax')->setView('single')->render();

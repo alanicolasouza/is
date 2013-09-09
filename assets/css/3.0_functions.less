@@ -137,13 +137,6 @@
   );
 }
 
-.BackgroundSize(@w, @h){
-  background-size: @w @h;
-  -webkit-background-size: @w @h;
-  -moz-background-size: @w @h;
-
-}
-
 /*
 =================================================
 ==================== BORDERS ====================
@@ -220,6 +213,12 @@
 =================== ANIMATION ===================
 =================================================
 */
+
+.AnimationDuration( @duration: 1s ){
+  -webkit-animation-duration: @duration;
+  -moz-animation-duration: @duration;
+  -o-animation-duration: @duration;
+}
 
 .animation( @animation ){
   -webkit-animation: @animation;
@@ -330,4 +329,3 @@
   content: "";
   .size(@w, @h);
 }
-
